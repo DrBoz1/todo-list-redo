@@ -49,10 +49,10 @@ function TodoList(){
         newTask[index] = editedText;
         setTasks(newTask); 
         setEditIndex(null);
-        setEditIndex("");
+        setEditedText("");
     }
 
-    function startEditing(index, task){
+    function startEditing(index, text){
         setEditIndex(index);
         setEditedText(text);
     }
@@ -77,7 +77,7 @@ function TodoList(){
                         <li key={index}>
                             {editIndex === index?(
                                 <input type="text" value={editedText}
-                                    onChange={() => setEditedText(editIndex.target.value)}
+                                    onChange={(e) => setEditedText(e.target.value)}
                                 />
                             ) :(
                                 <span className="text">{task}</span>
