@@ -62,7 +62,13 @@ function TodoList(){
             <ol>
                 {tasks.map((task,index) => 
                         <li key={index}>
-                            <span className="text">{task}</span>
+                            {editIndex === index?(
+                                <input type="text" value={editedText}
+                                    onChange={() => setEditedText(editIndex.target.value)}
+                                />
+                            ) :(
+                                <span className="text">{task}</span>
+                            )}
                             <button className="delete-button" onClick={()=>deleteTask(index)}>
                                 Delete
                             </button>
@@ -73,6 +79,12 @@ function TodoList(){
                             <button className="move-button" onClick={()=>moveTaskDown(index)}>
                                 👇
                             </button>
+
+                            {editIndex === index ?(
+                                <button className="save-button" onClick={()=> saveEdit(index)}>💾</button>
+                            ) :(
+                                <button className="edit-button" onClick={() => startEditing(index, task)}>📝</button>
+                            )}
                         </li>
                     )}
             </ol>
