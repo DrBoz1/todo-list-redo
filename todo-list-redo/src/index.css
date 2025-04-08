@@ -49,6 +49,26 @@ button{
 
 }
 
+.save-button{
+    background-color: rgb(243, 243, 243);
+
+}
+
+.edit-button{
+    background-color: rgb(243, 243, 243);
+
+}
+
+.edit-button:hover{
+    background-color: rgb(165, 165, 165);
+
+}
+
+.save-button:hover{
+    background-color: rgb(165, 165, 165);
+
+}
+
 .move-button:hover{
     background-color: rgb(23, 41, 235);
 
@@ -82,7 +102,7 @@ li{
     flex: 1;
 }
 
-.delete-button, .move-button{
+.delete-button, .move-button, .save-button, .edit-button{
     padding: 8px 12px;
     font-size: 1.4rem;
     margin-left: 10px;
