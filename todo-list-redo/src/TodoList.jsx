@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 function TodoList(){
     const [tasks, setTasks] = useState([]);
-    const [newtask, setNewTask] = useState("");
+    const [newTask, setNewTask] = useState("");
     const[editIndex, setEditIndex] = useState(null); //New added feature for editing the to-do-list
     const[editedText, setEditedText] = useState("");
 
@@ -12,8 +12,8 @@ function TodoList(){
     }
 
     function addTask(){
-    if(newtask.trim() !== ""){
-    setTasks(t => [...tasks, newtask]);
+    if(newTask.trim() !== ""){
+    setTasks(t => [...tasks, newTask]);
     setNewTask("");
         }
     }
@@ -43,6 +43,19 @@ function TodoList(){
              setTasks(updatedTasks);
     }
 }
+
+    function saveEdit(index){
+        const newTask = [...tasks];
+        newTask[index] = editedText;
+        setTasks(newTask); 
+        setEditIndex(null);
+        setEditIndex("");
+    }
+
+    function startEditing(index, task){
+        setEditIndex(index);
+        setEditedText(text);
+    }
     return(
         <>
         <div className="to-do-list">
@@ -51,7 +64,7 @@ function TodoList(){
             <div>
                 <input
                     type="text" placeholder="Enter a Task.."
-                    value={newtask}
+                    value={newTask}
                     onChange={handleInputChange}/>
 
                     <button className="add-button" onClick={addTask}>
