@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 function TodoList(){
     const [tasks, setTasks] = useState([]);
     const [newtask, setNewTask] = useState("");
+    const[editIndex, setEditIndex] = useState(null); //New added feature for editing the to-do-list
+    const[editedText, setEditedText] = useState("");
 
 
     function handleInputChange(event){
